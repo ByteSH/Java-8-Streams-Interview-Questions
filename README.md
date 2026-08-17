@@ -62,13 +62,19 @@ class Person {
 
 ## 💻 Questions
 
-**1. 4 Ways to create a stream in Java (Collections, Arrays, Stream.of, Stream.generate)**
+**1. Ways to create a stream in Java (From Array, Collections, Arrays, Stream.of, Stream.generate)**
 
 ```java
 import java.util.*;
 import java.util.stream.*;
 
 void main(){
+
+    int[] arr = {1, 2, 3, 4, 5, 6};
+    List<Integer> list = Arrays.stream(arr)
+                                .boxed()
+                                .toList();
+    System.out.println(list);
 
     List<Integer> list = Arrays.asList(1, 2, 3);
     list.stream().forEach(System.out::println);
