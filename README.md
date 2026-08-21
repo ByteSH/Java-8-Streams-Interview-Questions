@@ -10,7 +10,7 @@ Every contribution counts, no matter how small. Join me on this exciting journey
 
 ## 📦 Shared DTO Classes
 
-> **Note:** `Employee` is used from **Question 11** onward (Q11, Q15, Q16, Q17), and `Person` is used in **Question 12**.
+> **Note:** `Employee` is used from **Question 14** onward (Q14, Q15, Q16, Q17), and `Person` is used in **Question 18**.
 
 **Employee.java**
 
@@ -289,56 +289,7 @@ void main(){
 
 ---
 
-**11. Sort a list of Employee objects by their salary**
-
-```java
-import java.util.*;
-
-void main(){
-
-    List<Employee> employees = Arrays.asList(
-        new Employee(1, "Hamza", "IT", 50000),
-        new Employee(2, "Ali", "HR", 40000),
-        new Employee(3, "Sara", "Finance", 60000)
-    );
-
-    employees.stream()
-                .sorted(Comparator.comparing(Employee::getSalary))
-                .forEach(System.out::println);
-}
-```
-
-**[:top: Scroll to Top](#java-8-streams-interview-questions)**
-
----
-
-**12. Calculate the average age of a list of Person objects**
-
-```java
-import java.util.*;
-
-void main(){
-
-    List<Person> people = Arrays.asList(
-        new Person("Hamza", 25),
-        new Person("Ali", 30),
-        new Person("Sara", 35)
-    );
-
-    double averageAge = people.stream()
-                                .mapToInt(Person::getAge)
-                                .average()
-                                .orElse(0);
-
-    System.out.println("Average Age: " + averageAge);
-}
-```
-
-**[:top: Scroll to Top](#java-8-streams-interview-questions)**
-
----
-
-**13. Partition numbers into two separate lists: even and odd**
+**11. Partition numbers into two separate lists: even and odd**
 
 ```java
 import java.util.*;
@@ -360,7 +311,33 @@ void main(){
 
 ---
 
-**14. Count occurrences of each element in a list**
+**12. Flatten a List of Lists**
+
+```java
+import java.util.*;
+
+void main(){
+
+    List<List<Integer>> list = Arrays.asList(
+        Arrays.asList(1, 2),
+        Arrays.asList(3, 4),
+        Arrays.asList(5, 6)
+    );
+
+    List<Integer> flatList =
+            list.stream()
+                .flatMap(l -> l.stream())
+                .toList();
+
+    System.out.println(flatList);
+}
+```
+
+**[:top: Scroll to Top](#java-8-streams-interview-questions)**
+
+---
+
+**13. Count occurrences of each element in a list**
 
 ```java
 import java.util.*;
@@ -377,6 +354,29 @@ void main(){
                 ));
 
     System.out.println(countMap);
+}
+```
+
+**[:top: Scroll to Top](#java-8-streams-interview-questions)**
+
+---
+
+**14. Sort a list of Employee objects by their salary**
+
+```java
+import java.util.*;
+
+void main(){
+
+    List<Employee> employees = Arrays.asList(
+        new Employee(1, "Hamza", "IT", 50000),
+        new Employee(2, "Ali", "HR", 40000),
+        new Employee(3, "Sara", "Finance", 60000)
+    );
+
+    employees.stream()
+                .sorted(Comparator.comparing(Employee::getSalary))
+                .forEach(System.out::println);
 }
 ```
 
@@ -478,25 +478,25 @@ void main(){
 
 ---
 
-**18. Flatten a List of Lists**
+**18. Calculate the average age of a list of Person objects**
 
 ```java
 import java.util.*;
 
 void main(){
 
-    List<List<Integer>> list = Arrays.asList(
-        Arrays.asList(1, 2),
-        Arrays.asList(3, 4),
-        Arrays.asList(5, 6)
+    List<Person> people = Arrays.asList(
+        new Person("Hamza", 25),
+        new Person("Ali", 30),
+        new Person("Sara", 35)
     );
 
-    List<Integer> flatList =
-            list.stream()
-                .flatMap(l -> l.stream())
-                .toList();
+    double averageAge = people.stream()
+                                .mapToInt(Person::getAge)
+                                .average()
+                                .orElse(0);
 
-    System.out.println(flatList);
+    System.out.println("Average Age: " + averageAge);
 }
 ```
 
