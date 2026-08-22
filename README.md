@@ -10,7 +10,7 @@ Every contribution counts, no matter how small. Join me on this exciting journey
 
 ## 📦 Shared DTO Classes
 
-> **Note:** `Employee` is used from **Question 14** onward (Q14, Q15, Q16, Q17), and `Person` is used in **Question 18**.
+> **Note:** `Employee` is used from **Question 11** onward (Q11, Q12, Q13, Q14), and `Person` is used in **Question 15**.
 
 **Employee.java**
 
@@ -289,79 +289,7 @@ void main(){
 
 ---
 
-**11. Partition numbers into two separate lists: even and odd**
-
-```java
-import java.util.*;
-
-void main(){
-
-    List<Integer> numbers = Arrays.asList(10, 15, 20, 25, 30, 35);
-
-    Map<Boolean, List<Integer>> partitioned =
-            numbers.stream()
-                    .collect(Collectors.partitioningBy(n -> n % 2 == 0));
-
-    System.out.println("Even numbers: " + partitioned.get(true));
-    System.out.println("Odd numbers: " + partitioned.get(false));
-}
-```
-
-**[:top: Scroll to Top](#java-8-streams-interview-questions)**
-
----
-
-**12. Flatten a List of Lists**
-
-```java
-import java.util.*;
-
-void main(){
-
-    List<List<Integer>> list = Arrays.asList(
-        Arrays.asList(1, 2),
-        Arrays.asList(3, 4),
-        Arrays.asList(5, 6)
-    );
-
-    List<Integer> flatList =
-            list.stream()
-                .flatMap(l -> l.stream())
-                .toList();
-
-    System.out.println(flatList);
-}
-```
-
-**[:top: Scroll to Top](#java-8-streams-interview-questions)**
-
----
-
-**13. Count occurrences of each element in a list**
-
-```java
-import java.util.*;
-
-void main(){
-
-    List<String> list = Arrays.asList("Apple", "Banana", "Apple", "Mango", "Banana", "Apple");
-
-    Map<String, Long> countMap =
-            list.stream()
-                .collect(Collectors.groupingBy(
-                    s -> s,
-                    Collectors.counting()
-                ));
-
-    System.out.println(countMap);
-}
-```
-
-**[:top: Scroll to Top](#java-8-streams-interview-questions)**
-
----
-
-**14. Sort a list of Employee objects by their salary**
+**11. Sort a list of Employee objects by their salary**
 
 ```java
 import java.util.*;
@@ -384,7 +312,7 @@ void main(){
 
 ---
 
-**15. Group employees by department and calculate the average salary for each department**
+**12. Group employees by department and calculate the average salary for each department**
 
 ```java
 import java.util.*;
@@ -414,7 +342,7 @@ void main(){
 
 ---
 
-**16. Find the highest-paid employee in each department**
+**13. Find the highest-paid employee in each department**
 
 ```java
 import java.util.*;
@@ -446,7 +374,7 @@ void main(){
 
 ---
 
-**17. Departments with More Than 1 Employee**
+**14. Departments with More Than 1 Employee**
 
 ```java
 import java.util.*;
@@ -478,7 +406,7 @@ void main(){
 
 ---
 
-**18. Calculate the average age of a list of Person objects**
+**15. Calculate the average age of a list of Person objects**
 
 ```java
 import java.util.*;
