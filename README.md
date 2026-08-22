@@ -302,9 +302,9 @@ void main(){
         new Employee(3, "Sara", "Finance", 60000)
     );
 
-    employees.stream()
-                .sorted(Comparator.comparing(Employee::getSalary))
-                .forEach(System.out::println);
+    employees.stream().sorted(Comparator.comparing(Employee::getSalary)).forEach(System.out::println);   // Ascending.
+    employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).forEach(System.out::println);  // Descending.
+
 }
 ```
 
