@@ -10,7 +10,7 @@ Every contribution counts, no matter how small. Join me on this exciting journey
 
 ## 📦 Shared DTO Classes
 
-> **Note:** `Employee` is used from **Question 11** onward (Q11, Q12, Q13, Q14), and `Person` is used in **Question 15**.
+> **Note:** `Employee` is used from **Question 12** onward (Q12, Q13, Q14, Q15), and `Person` is used in **Question 16**.
 
 **Employee.java**
 
@@ -289,7 +289,29 @@ void main(){
 
 ---
 
-**11. Sort a list of Employee objects by their salary**
+**11. Partition numbers into two separate lists: even and odd**
+
+```java
+import java.util.*;
+
+void main(){
+
+    List<Integer> numbers = Arrays.asList(10, 15, 20, 25, 30, 35);
+
+    Map<Boolean, List<Integer>> partitioned =
+            numbers.stream()
+                    .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+
+    System.out.println("Even numbers: " + partitioned.get(true));
+    System.out.println("Odd numbers: " + partitioned.get(false));
+}
+```
+
+**[:top: Scroll to Top](#java-8-streams-interview-questions)**
+
+---
+
+**12. Sort a list of Employee objects by their salary**
 
 ```java
 import java.util.*;
@@ -312,7 +334,7 @@ void main(){
 
 ---
 
-**12. Group employees by department and calculate the average salary for each department**
+**13. Group employees by department and calculate the average salary for each department**
 
 ```java
 import java.util.*;
@@ -342,7 +364,7 @@ void main(){
 
 ---
 
-**13. Find the highest-paid employee in each department**
+**14. Find the highest-paid employee in each department**
 
 ```java
 import java.util.*;
@@ -374,7 +396,7 @@ void main(){
 
 ---
 
-**14. Departments with More Than 1 Employee**
+**15. Departments with More Than 1 Employee**
 
 ```java
 import java.util.*;
@@ -406,7 +428,7 @@ void main(){
 
 ---
 
-**15. Calculate the average age of a list of Person objects**
+**16. Calculate the average age of a list of Person objects**
 
 ```java
 import java.util.*;
