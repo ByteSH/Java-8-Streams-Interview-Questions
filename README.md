@@ -62,31 +62,41 @@ class Person {
 
 ## 💻 Questions
 
-**1. Ways to create a stream in Java (From Array, Collections, Arrays, Stream.of, Stream.generate)**
+**1. Write a Java program to demonstrate different ways to create a Stream in Java.**
+The program should include the following examples:
+
+1. Create an `IntStream` from an `int[]` array using `Arrays.stream()`.
+2. Create a Stream from an `Integer[]` array using `Arrays.stream()`.
+3. Create a Stream from a `List` using the `stream()` method.
+4. Create a Stream using `Stream.of()`.
+5. Create a Stream using `Stream.generate()` and print only 3 elements.
 
 ```java
 import java.util.*;
 import java.util.stream.*;
 
-void main(){
+public class Main {
+    public static void main(String[] args) {
+        // 1. Stream from an int[] array
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        Arrays.stream(arr).forEach(System.out::println);
 
-    int[] arr = {1, 2, 3, 4, 5, 6};
-    List<Integer> list = Arrays.stream(arr)
-                                .boxed()
-                                .toList();
-    System.out.println(list);
+        // 2. Stream from an Integer[] array
+        Integer[] integer = {1, 2, 3, 4, 5};
+        Arrays.stream(integer).forEach(System.out::println);
 
-    List<Integer> list = Arrays.asList(1, 2, 3);
-    list.stream().forEach(System.out::println);
+        // 3. Stream from a Collection
+        List<Integer> list = Arrays.asList(10, 20, 30);
+        list.stream().forEach(System.out::println);
 
-    String[] arr = {"A", "B", "C"};
-    Arrays.stream(arr).forEach(System.out::println);
+        // 4. Stream using Stream.of()
+        Stream.of("A", "B", "C").forEach(System.out::println);
 
-    Stream<Integer> stream = Stream.of(1, 2, 3);
-    stream.forEach(System.out::println);
-
-    Stream<Double> stream2 = Stream.generate(Math::random).limit(3);
-    stream2.forEach(System.out::println);
+        // 5. Stream using Stream.generate()
+        Stream.generate(Math::random)
+              .limit(3)
+              .forEach(System.out::println);
+    }
 }
 ```
 
